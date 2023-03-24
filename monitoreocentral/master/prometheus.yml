@@ -12,7 +12,7 @@ scrape_configs:
         - '{__name__=~".+"}'
     static_configs:
       # ------------------------------------- #
-      - targets: [ '192.168.4.130:9090']  # DEV
+      - targets: ['192.168.4.130:9090']  # DEV
         labels:
           pais: BO
           entorno: DEV
