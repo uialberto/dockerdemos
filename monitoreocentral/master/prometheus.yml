@@ -1,0 +1,23 @@
+global:
+  scrape_interval:     30s # El intervalo en el que se traerá las métricas
+  evaluation_interval: 30s # Evaluará las reglas cada 30 segundos, por defecto es cada minuto
+
+scrape_configs:
+
+  - job_name: 'Prometheus_master'
+    honor_labels: true
+    metrics_path: '/federate'
+    params:
+      'match[]':
+        - '{__name__=~".+"}'
+    static_configs:
+      # ------------------------------------- #
+      - targets: [ '192.168.4.130:9090']  # DEV
+        labels:
+          pais: BO
+          entorno: DEV
+          cliente: uibasoft
+          hostname: ubu22srv07
+      # ------------------------------------- #
+
+      
